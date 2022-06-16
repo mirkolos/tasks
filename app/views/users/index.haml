@@ -1,0 +1,15 @@
+%ul
+  - @users.each do |user|
+    .jumbotron.jumbotron-fluid
+      .container
+        %h1.lead
+          = user.first_name
+        %h1.lead
+          = user.last_name
+        %h2.lead
+          = user.email
+        %h2.lead
+          = user.adress
+        %strong Kód uživatele
+        %h2.lead
+          = user.id

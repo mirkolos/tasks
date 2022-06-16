@@ -1,0 +1,9 @@
+%p{style: "color: green"}= notice
+= render @task
+%div
+  = link_to "Editovat úkol", edit_task_path(@task),  class:"btn btn-outline-info"
+  |
+  \#{link_to "Zpět", tasks_path, class:"btn btn-outline-info"}
+  %br/
+  %br/
+  = button_to "Smazat úkol", @task, method: :delete, class:"btn btn-outline-info"

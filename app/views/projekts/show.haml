@@ -1,0 +1,8 @@
+= render @projekt
+%div
+  = link_to "Edit this projekt", edit_projekt_path(@projekt), class:"btn btn-outline-info"
+  |
+  \#{link_to "Back to projekts", projekts_path,  class:"btn btn-outline-info"}
+  %br/
+  %br/
+  = button_to "Destroy this projekt", @projekt, method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}} ,  class:"btn btn-outline-info"

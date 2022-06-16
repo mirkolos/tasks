@@ -1,0 +1,7 @@
+%h1 Editování projektu
+= render "form", projekt: @projekt
+%br/
+%div
+  = link_to "Ukázat projekt",  @projekt,   class:"btn btn-outline-info"
+  |
+  \#{link_to "Zpět na projekty",  projekts_path ,  class:"btn btn-outline-info"}

@@ -1,0 +1,12 @@
+<h1>Projekty</h1>
+
+<div id="projekts" class"table" >
+  <% @projekts.each do |projekt| %>
+    <%= render projekt %>
+    <p>
+      <%= link_to "Ukázat projekt", projekt, class:"btn btn-outline-info" %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "Nový projekt", new_projekt_path, class:"btn btn-outline-info" %>

@@ -1,0 +1,8 @@
+%p{style: "color: green"}= notice
+%h1 Úkoly
+#tasks
+  - @tasks.each do |task|
+    = render task
+    %p
+      = link_to "Prohlédnout úkol", task, class:"btn btn-outline-info"
+= link_to "Nový úkol", new_task_path, class:"btn btn-outline-info"
