@@ -1,8 +1,38 @@
 = render @projekt
+%h2 úkoly v projektu
+#tasks
+  - @tasks.each do |task|
+    - if @projekt.id == task.projekt_id
+      .card{style: "width: 18rem;"}
+        .card-body
+          %h5.card-title
+            = task.predmet
+          %p.card-text
+            = task.popis
+          %strong Uživatelé plnící úkol:
+          - @users.each do |user|
+            - if user.id == task.user_id
+              %h5.card-text
+                = user.first_name
+                = user.last_name
+          %p.card-text
+            %h6 Stav úkolu:
+            %h5.card-text
+              = task.stav
+            %h6 Vytvořen:
+            = task.created_at
+          - if task.file.attached?
+            %p.card-text
+              Příloha:
+              = link_to "Stažení přílohy", rails_blob_path(task.file, disposition: "attachment")
+
+        = link_to "Prohlédnout úkol", task, class:"btn btn-outline-info"
+      %br
+= paginate @tasks , window: 2
 %div
-  = link_to "Edit this projekt", edit_projekt_path(@projekt), class:"btn btn-outline-info"
+  = link_to "Editovat projekt", edit_projekt_path(@projekt), class:"btn btn-outline-info"
   |
-  \#{link_to "Back to projekts", projekts_path,  class:"btn btn-outline-info"}
+  \#{link_to "Zpět k projektům", projekts_path,  class:"btn btn-outline-info"}
   %br/
   %br/
-  = button_to "Destroy this projekt", @projekt, method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}} ,  class:"btn btn-outline-info"
+  = button_to "Zrušit projekt", @projekt, method: :delete, form: {data: {confirm: 'Are you sure?'}} ,  class:"btn btn-outline-info"

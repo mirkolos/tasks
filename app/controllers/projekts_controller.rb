@@ -3,12 +3,14 @@ class ProjektsController < ApplicationController
 
   # GET /projekts or /projekts.json
   def index
-    @projekts = Projekt.all
-    @tasks = Task.all
+    @projekts = Projekt.order(created_at: :desc).page(params[:page])
   end
 
   # GET /projekts/1 or /projekts/1.json
   def show
+@tasks = Task.order(created_at: :desc).page(params[:page])
+  @users = User.all
+
   end
 
   # GET /projekts/new
@@ -26,7 +28,7 @@ class ProjektsController < ApplicationController
 
     respond_to do |format|
       if @projekt.save
-        format.html { redirect_to projekt_url(@projekt), notice: "Projekt was successfully created." }
+        format.html { redirect_to projekt_url(@projekt), notice: "Projekt byl úspěšně vytvořen." }
         format.json { render :show, status: :created, location: @projekt }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +41,7 @@ class ProjektsController < ApplicationController
   def update
     respond_to do |format|
       if @projekt.update(projekt_params)
-        format.html { redirect_to projekt_url(@projekt), notice: "Projekt was successfully updated." }
+        format.html { redirect_to projekt_url(@projekt), notice: "Projekt byl úspěšně aktualizován." }
         format.json { render :show, status: :ok, location: @projekt }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,7 +55,7 @@ class ProjektsController < ApplicationController
     @projekt.destroy
 
     respond_to do |format|
-      format.html { redirect_to projekts_url, notice: "Projekt was successfully destroyed." }
+      format.html { redirect_to projekts_url, notice: "Projekt byl úspěšně zrušen." }
       format.json { head :no_content }
     end
   end

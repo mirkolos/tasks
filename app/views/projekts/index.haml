@@ -1,0 +1,12 @@
+%h1 Projekty
+#projekts
+  - @projekts.each do |projekt|
+    = render projekt
+    %br
+    %br
+= page_entries_info @projekts
+= paginate @projekts , window: 2 
+%br
+
+= link_to "nový projekt", new_projekt_path, class:"btn btn-outline-info"
+

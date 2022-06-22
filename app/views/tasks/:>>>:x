@@ -4,6 +4,9 @@
       = task.predmet
     %p.card-text
       = task.popis
+      = image_tag task.file
+      /
+        = link_to "aa", rails_blob_path(task.file, disposition: "attachment") 
     %strong Název projektu:
     - @projekts.each do |projekt|
       - if task.projekt_id == projekt.id
@@ -18,8 +21,4 @@
     %p.card-text
       %h6 stav úkolu:
       = task.stav
-    - if task.file.attached?
-      %p.card-text
-        Příloha:
-        = link_to "Stažení přílohy", rails_blob_path(task.file, disposition: "attachment")
 

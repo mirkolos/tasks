@@ -1,9 +1,13 @@
 .card{style: "width: 18rem;"}
   .card-body
     %h3.card-title
-      = projekt.nazev
+      = link_to projekt.nazev, projekt
     %p.card-text
       = projekt.popis
-    %strong Kód projektu
     %p.card-text
-      = projekt.id
+      Projekt vytvořen: 
+      = projekt.created_at
+    %p.card-text
+      Počet úkolů v projektu:
+      = projekt.tasks.count
+

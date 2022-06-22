@@ -1,8 +1,8 @@
 %h1 Editing task
-= render "form", task: @task
+= render "formedit", task: @task
 %br/
 %div
-  = link_to "Show this task", @task,   class:"btn btn-outline-info"
+  = link_to "Ukázat úkol", @task,   class:"btn btn-outline-info"
   |
-  \#{link_to "Back to tasks", tasks_path,  class:"btn btn-outline-info"}
+  \#{link_to "Zpět", tasks_path,  class:"btn btn-outline-info"}
 

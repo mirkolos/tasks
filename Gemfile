@@ -16,6 +16,11 @@ gem "hamlit"
 gem 'simple_form'
 gem 'devise'
 gem 'jquery-rails'
+gem "image_processing", ">= 1.2"
+gem "mini_magick"
+gem 'kaminari'
+gem 'devise-i18n'
+
 #gem 'bootstrap', '~> 5.1.3'
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

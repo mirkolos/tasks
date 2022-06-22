@@ -1,14 +1,5 @@
-/ Footer
 %footer.text-center.text-lg-start.bg-light.text-muted
-  / Section: Social media
   %section.d-flex.justify-content-center.justify-content-lg-between.p-4.border-bottom
-    / Left
-    /
-      <div class="me-5 d-none d-lg-block">
-      <span>Get connected with us on social networks:</span>
-      </div>
-      <!-- Left
-    / Right
     %div
       %a.me-4.text-reset{href: ""}
         %i.fab.fa-facebook-f
@@ -22,27 +13,21 @@
         %i.fab.fa-linkedin
       %a.me-4.text-reset{href: ""}
         %i.fab.fa-github
-    / Right
-  / Section: Social media
-  \--&gt;
-  / Section: Links
   %section
     .container.text-center.text-md-start.mt-5
-      / Grid row
       .row.mt-3
-        / Grid column
         .col-md-3.col-lg-4.col-xl-3.mx-auto.mb-4
-          / Content
           %h6.text-uppercase.fw-bold.mb-4
             %i.fas.fa-gem.me-3>
             Úkoly
           %p
             Super úkolová aplikace
-        / Grid column
+            - if user_signed_in?
+            - else
+              %br
+              Přihlašte se pro všechny funkce
         - if user_signed_in?
-          / Grid column
           .col-md-2.col-lg-2.col-xl-2.mx-auto.mb-4
-            / Links
             %h6.text-uppercase.fw-bold.mb-4
               Linky
             %p
@@ -53,9 +38,6 @@
                 = link_to "Ǔkoly", tasks_path, class:"nav-link"
             %p
               %a.text-reset{href: "#!"}= link_to "Uživatelé", users_path, class:"nav-link"
-        / Copyright
       .text-center.p-4{style: "background-color: rgba(0, 0, 0, 0.05);"}
         © 2022 Copyright:
         %a.text-reset.fw-bold{} mirkolos
-        / Copyright
-        / Footer
