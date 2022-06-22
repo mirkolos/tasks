@@ -20,6 +20,7 @@ gem "image_processing", ">= 1.2"
 gem "mini_magick"
 gem 'kaminari'
 gem 'devise-i18n'
+gem "aws-sdk-s3", require: false
 
 #gem 'bootstrap', '~> 5.1.3'
 group :development, :test do
