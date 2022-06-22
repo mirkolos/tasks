@@ -32,6 +32,7 @@ group :development do
 
 end
 group :production do
+gem "aws-sdk-s3", require: false
 gem "pg", "~> 1.1"
 end
 group :test do
