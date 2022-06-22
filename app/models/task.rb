@@ -1,6 +1,6 @@
 class Task < ApplicationRecord
 belongs_to :projekt
-has_one_attached :file,  service: :s3
+has_one_attached :file
 belongs_to :user, optional: true
 validates :stav, presence: true
 validates :predmet, presence: true
