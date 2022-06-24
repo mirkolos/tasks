@@ -9,6 +9,8 @@
     <%= f.association :user, label_method: :first_name %>
     <%= f.association :projekt,label_method: :nazev, prompt: "Vyberte projekt" %>
     <%= f.input :stav, as: :radio_buttons, collection: [['Nový', 'Nový'], ['V řešení', 'V řešení'],['Čeká se na klienta','Čeká se na klienta'],['Vyřešeno','Vyřešeno'] ], label_method: :second, value_method: :first %>
+       <%= f.input :file  %>
+
   </div>
 
   <div class="form-actions">
