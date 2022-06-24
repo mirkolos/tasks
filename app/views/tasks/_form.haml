@@ -1,0 +1,12 @@
+= simple_form_for(@task) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+  .form-inputs
+    = f.input :predmet
+    = f.input :popis
+    = f.association :user, label_method: :first_name
+    = f.association :projekt,label_method: :nazev, prompt: "Vyberte projekt"
+    = f.hidden_field :stav, value: "Nový"
+    = f.input :file
+  .form-actions
+    = f.button :submit,  class:"btn btn-outline-info"

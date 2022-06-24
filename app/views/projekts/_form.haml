@@ -1,0 +1,10 @@
+= simple_form_for(@projekt) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+  .form-inputs
+    = f.input :nazev, required: true, label: 'Napište název projektu',  error: 'Název projektu je povinný údaj'
+    = f.input :popis, label: 'Napište popis projektu'
+  .form-actions
+    = f.button :submit,   class:"btn btn-outline-info"
+
+
